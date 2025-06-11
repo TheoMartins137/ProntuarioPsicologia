@@ -5,9 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProntuarioPsicologia"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="Menu Inicial" Height="618" Width="1069"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         ui:WindowHelper.UseModernWindowStyle="True">
-        
-            
+
+    <ui:NavigationView x:Name="nvSample" PaneDisplayMode="Left"  IsSettingsVisible="False" IsBackButtonVisible="Collapsed">
+        <ui:NavigationView.MenuItems>
+            <ui:NavigationViewItem x:Name="Item1"  Content="Pesquisar Paciente" Tag="Item1"/>
+            <ui:NavigationViewItem x:Name="Item2"  Content="Cadastrar Paciente" Tag="Item2"/>
+            <ui:NavigationViewItem x:Name="Item3"  Content="AAAAAAAA" Tag="Item3"/>
+            <ui:NavigationViewItem x:Name="Item4"  Content="Fodasse" Tag="Item4"/>
+        </ui:NavigationView.MenuItems>
+        <Grid x:Name="Grid" Width="814">
+            <StackPanel>
+
+            </StackPanel>
+            <ContentControl x:Name="MainContent"/>
+        </Grid>
+    </ui:NavigationView>
+
+
 </Window>
