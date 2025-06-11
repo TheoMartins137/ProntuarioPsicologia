@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using ProntuarioPsicologia.UserControls;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,12 @@ namespace ProntuarioPsicologia
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Item1_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MainContent.Content = null;
+            MainContent.Content = new UC_Pesquisar();
         }
     }
 }
