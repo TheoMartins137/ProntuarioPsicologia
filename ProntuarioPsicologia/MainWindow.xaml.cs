@@ -27,5 +27,11 @@ namespace ProntuarioPsicologia
             MainContent.Content = null;
             MainContent.Content = new UC_Pesquisar();
         }
+
+        private void Item2_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MainContent.Content = null;
+            MainContent.Content = new UC_Cadastro();
+        }
     }
 }

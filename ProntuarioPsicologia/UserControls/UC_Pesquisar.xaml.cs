@@ -24,6 +24,7 @@ namespace ProntuarioPsicologia.UserControls
         {
             InitializeComponent();
 
+
             ListaPacientes pacientes = new ListaPacientes();
             pacientes.id = 1;
             pacientes.nome = "Teste";
@@ -35,24 +36,31 @@ namespace ProntuarioPsicologia.UserControls
 
             ListaPacientes pacientes1 = new ListaPacientes();
             pacientes1.id = 2;
-            pacientes1.nome = "Teste";
-            pacientes1.telefone = "12345";
-            pacientes1.nomeResponsavel = "Carlos";
+            pacientes1.nome = "Teste2";
+            pacientes1.telefone = "123456";
+            pacientes1.nomeResponsavel = "CarlosJose";
             pacientes1.telefoneResponsavel = "123456";
 
             ListaPacientes.lista.Add(pacientes1);
-
+                
             foreach (ListaPacientes paci in ListaPacientes.lista)
             {
                 LstPacientes.Items.Add(paci);
             }
-
-
-
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+            string? teste;
+            int? id;
+
+            if (LstPacientes.SelectedItem is ListaPacientes pacientes)
+            {
+                teste = pacientes.nomeResponsavel;
+                id = pacientes.id;
+                MessageBox.Show(teste + " " + id);
+            }
 
         }
     }

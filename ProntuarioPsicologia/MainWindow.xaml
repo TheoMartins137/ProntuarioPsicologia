@@ -12,7 +12,7 @@
     <ui:NavigationView x:Name="nvSample" PaneDisplayMode="Left"  IsSettingsVisible="False" IsBackButtonVisible="Collapsed">
         <ui:NavigationView.MenuItems>
             <ui:NavigationViewItem x:Name="Item1"  Content="Pesquisar Paciente" Tag="Item1" MouseDown="Item1_MouseDown"/>
-            <ui:NavigationViewItem x:Name="Item2"  Content="Cadastrar Paciente" Tag="Item2"/>
+            <ui:NavigationViewItem x:Name="Item2"  Content="Cadastrar Paciente" Tag="Item2" MouseDown="Item2_MouseDown"/>
             <ui:NavigationViewItem x:Name="Item3"  Content="AAAAAAAA" Tag="Item3"/>
             <ui:NavigationViewItem x:Name="Item4"  Content="Fodasse" Tag="Item4"/>
         </ui:NavigationView.MenuItems>
