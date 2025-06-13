@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
-        <Button Content="Confirmar" Margin="346,44,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button x:Name="btnConfirmar" Content="Confirmar" Margin="346,44,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click"/>
         <TextBox x:Name="txtCPF" HorizontalAlignment="Left" Margin="185,44,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152"/>
         <ComboBox x:Name="cbxPsi" Margin="435,44,0,0" Width="152" IsEditable="False" VerticalAlignment="Top" HorizontalAlignment="Left">
             <ComboBoxItem Content="Teste"/>
@@ -34,21 +34,22 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="185,105,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="402"/>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="185,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="402"/>
         <Label x:Name="lblNome" Content="Nome Completo:" HorizontalAlignment="Left" Margin="185,84,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="DTANasc" Margin="185,169,0,0" VerticalAlignment="Top" Width="180"/>
         <Label x:Name="lblNasc" Content="Data de nascimento:" HorizontalAlignment="Left" Margin="185,150,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtTelefone" HorizontalAlignment="Left" Margin="407,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="180"/>
+        <TextBox x:Name="txtTelefone" HorizontalAlignment="Left" Margin="407,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
         <Label x:Name="lblTelefone" Content="Telefone:" HorizontalAlignment="Left" Margin="407,150,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtValor" HorizontalAlignment="Left" Margin="185,238,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152"/>
         <Label x:Name="lblValor" Content="Valor:" HorizontalAlignment="Left" Margin="185,218,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="Com nota?" Margin="348,237,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNomeResponsavel" HorizontalAlignment="Left" Margin="185,299,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="402"/>
+        <CheckBox x:Name="ckbNota" Content="Com nota?" Margin="348,237,0,0" VerticalAlignment="Top" />
+        <TextBox x:Name="txtNomeResponsavel" HorizontalAlignment="Left" Margin="185,299,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="402"/>
         <Label x:Name="lblNomeResponsavel" Content="Nome Completo do Responsavel:*" HorizontalAlignment="Left" Margin="185,278,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtTelefoneResponsavel" HorizontalAlignment="Left" Margin="185,355,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="180"/>
+        <TextBox x:Name="txtTelefoneResponsavel" HorizontalAlignment="Left" Margin="185,355,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
         <Label x:Name="lblTelefoneResponsavel" Content="Telefone do Responsavel:*" HorizontalAlignment="Left" Margin="185,336,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtTelefoneConfianca" HorizontalAlignment="Left" Margin="407,355,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="180"/>
+        <TextBox x:Name="txtTelefoneConfianca" HorizontalAlignment="Left" Margin="407,355,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
         <Label x:Name="lblTelefoneConfianca" Content="Telefone de Confiança:*" HorizontalAlignment="Left" Margin="407,336,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" Margin="406,398,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181"/>
 
     </Grid>
 </UserControl>

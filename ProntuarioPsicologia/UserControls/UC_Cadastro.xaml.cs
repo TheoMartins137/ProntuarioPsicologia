@@ -23,8 +23,45 @@ namespace ProntuarioPsicologia.UserControls
         public UC_Cadastro()
         {
             InitializeComponent();
+            EsconderTudo();
+            
+        }
 
+        public void EsconderTudo()
+        {
+            var controles = new Control[]
+            {
+                txtNome, txtNomeResponsavel, txtTelefone, txtTelefoneConfianca, txtTelefoneResponsavel, txtValor,
+                lblNasc, lblNome, lblNomeResponsavel, lblTelefone, lblTelefone, lblTelefoneConfianca, lblTelefoneResponsavel, lblValor,
+                DTANasc, ckbNota, btnCadastrar
+            };
+            foreach (var controle in controles)
+            {
+                controle.Visibility = Visibility.Collapsed;
+                controle.IsEnabled = false;
 
+            }
+        }
+
+        public void MostrarTudo()
+        {
+            var controles = new Control[]
+            {
+                txtNome, txtNomeResponsavel, txtTelefone, txtTelefoneConfianca, txtTelefoneResponsavel, txtValor,
+                lblNasc, lblNome, lblNomeResponsavel, lblTelefone, lblTelefone, lblTelefoneConfianca, lblTelefoneResponsavel, lblValor,
+                DTANasc, ckbNota, btnCadastrar
+            };
+            foreach (var controle in controles)
+            {
+                controle.Visibility = Visibility.Visible;
+                controle.IsEnabled = true;
+
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MostrarTudo();
         }
     }
 }
