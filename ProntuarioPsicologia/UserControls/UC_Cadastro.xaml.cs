@@ -23,6 +23,8 @@ namespace ProntuarioPsicologia.UserControls
         public UC_Cadastro()
         {
             InitializeComponent();
+
+
         }
     }
 }

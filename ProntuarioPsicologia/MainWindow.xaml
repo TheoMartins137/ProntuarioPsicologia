@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Menu Inicial" Height="581" Width="1069"
         xmlns:ui="http://schemas.modernwpf.com/2019"
-        ui:WindowHelper.UseModernWindowStyle="True">
+        ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterScreen">
 
     <ui:NavigationView x:Name="nvSample" PaneDisplayMode="Left"  IsSettingsVisible="False" IsBackButtonVisible="Collapsed">
         <ui:NavigationView.MenuItems>

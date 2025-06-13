@@ -42,7 +42,13 @@
         <Label x:Name="lblTelefone" Content="Telefone:" HorizontalAlignment="Left" Margin="407,150,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtValor" HorizontalAlignment="Left" Margin="185,238,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152"/>
         <Label x:Name="lblValor" Content="Valor:" HorizontalAlignment="Left" Margin="185,218,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="Nota Necessaria?" Margin="348,237,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="Com nota?" Margin="348,237,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNomeResponsavel" HorizontalAlignment="Left" Margin="185,299,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="402"/>
+        <Label x:Name="lblNomeResponsavel" Content="Nome Completo do Responsavel:*" HorizontalAlignment="Left" Margin="185,278,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtTelefoneResponsavel" HorizontalAlignment="Left" Margin="185,355,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="180"/>
+        <Label x:Name="lblTelefoneResponsavel" Content="Telefone do Responsavel:*" HorizontalAlignment="Left" Margin="185,336,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtTelefoneConfianca" HorizontalAlignment="Left" Margin="407,355,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="180"/>
+        <Label x:Name="lblTelefoneConfianca" Content="Telefone de Confiança:*" HorizontalAlignment="Left" Margin="407,336,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>
