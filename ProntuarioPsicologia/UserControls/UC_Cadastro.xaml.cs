@@ -27,7 +27,7 @@ namespace ProntuarioPsicologia.UserControls
             EsconderTudo();
         }
 
-        MySqlConnection Conexao;
+        public MySqlConnection Conexao = new MySqlConnection();
         private string data_source = "datasource=localhost;username=root;password=Martinsfreitas8;database=db_prontuario";
 
         public void EsconderTudo()
@@ -190,7 +190,7 @@ namespace ProntuarioPsicologia.UserControls
 
                 if(ValidarCampos())
                 { 
-                MessageBoxResult result = MessageBox.Show("Verifique os campos \n \r Deseja Cadastrar?", "VERIFIQUE", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                MessageBoxResult result = MessageBox.Show("Verifique os campos antes de cadastrar \n \r Deseja Cadastrar?", "ATENÇÂO", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (result == MessageBoxResult.Yes)
                     {
                         cmd.ExecuteNonQuery();

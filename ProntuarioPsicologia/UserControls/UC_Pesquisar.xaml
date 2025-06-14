@@ -14,18 +14,24 @@
             <ListView.View>
                 <GridView ScrollViewer.CanContentScroll="True">
                     <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding id}"/>
-                    <GridViewColumn Header="Nome Completo" DisplayMemberBinding="{Binding nome}"/>
-                    <GridViewColumn Header="Telefone" DisplayMemberBinding="{Binding telefone}"/>
-                    <GridViewColumn Header="Nome do Responsável" Width="125" DisplayMemberBinding="{Binding nomeResponsavel}"/>
-                    <GridViewColumn Header="Tel. Responsável" Width="125" DisplayMemberBinding="{Binding telefoneResponsavel}"/>
-                    <GridViewColumn Header="Status Pagamento"/>
+                    <GridViewColumn Header="Nome Completo" Width="250" DisplayMemberBinding="{Binding nome}"/>
+                    <GridViewColumn Header="CPF" Width="80" DisplayMemberBinding="{Binding CPF}"/>
+                    <GridViewColumn Header="Telefone" Width="150" DisplayMemberBinding="{Binding telefone}"/>
+                    <GridViewColumn Header="Valor" Width="125" DisplayMemberBinding="{Binding valor}"/>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding status}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ComboBox Margin="6,81,0,0" Width="168"/>
-        <ComboBox Margin="180,81,0,0" Width="168"/>
-        <Label Content="Selecione o psicologo:" HorizontalAlignment="Left" Margin="6,58,0,0" VerticalAlignment="Top"/>
-        <Label Content="Status de pagamento:" HorizontalAlignment="Left" Margin="181,56,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbxPsi" Margin="17,79,0,0" Width="168">
+            <ComboBoxItem Content="Alice Martins"/>
+            <ComboBoxItem Content="Igor Ferreira"/>
+        </ComboBox>
+        <ComboBox x:Name="cbxStatus" Margin="188,79,0,0" Width="168">
+            <ComboBoxItem Content="Pago"/>
+            <ComboBoxItem Content="Não Pago"/>
+        </ComboBox>
+        <Label Content="Selecione o psicólogo:" HorizontalAlignment="Left" Margin="17,53,0,0" VerticalAlignment="Top"/>
+        <Label Content="Status de pagamento:" HorizontalAlignment="Left" Margin="189,53,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>

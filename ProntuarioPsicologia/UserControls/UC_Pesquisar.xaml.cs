@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace ProntuarioPsicologia.UserControls
 {
@@ -20,46 +21,53 @@ namespace ProntuarioPsicologia.UserControls
     /// </summary>
     public partial class UC_Pesquisar : UserControl
     {
+        public MySqlConnection Conexao = new MySqlConnection();
+        private string data_source = "datasource=localhost;username=root;password=Martinsfreitas8;database=db_prontuario";
+
         public UC_Pesquisar()
         {
             InitializeComponent();
 
+            Conexao = new MySqlConnection(data_source);
+            Conexao.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = Conexao;
 
-            ListaPacientes pacientes = new ListaPacientes();
-            pacientes.id = 1;
-            pacientes.nome = "Teste";
-            pacientes.telefone = "12345";
-            pacientes.nomeResponsavel = "Carlos";
-            pacientes.telefoneResponsavel = "123456";
+            string sql = "SELECT id_pacientes, nome, cpf_pacientes, telefone, valor, valor_pago FROM pacientes ORDER BY id_pacientes ASC";
+            MySqlCommand comand = new MySqlCommand(sql, Conexao);
 
-            ListaPacientes.lista.Add(pacientes);
+            MySqlDataReader reader = comand.ExecuteReader();
+            LstPacientes.Items.Clear();
 
-            ListaPacientes pacientes1 = new ListaPacientes();
-            pacientes1.id = 2;
-            pacientes1.nome = "Teste2";
-            pacientes1.telefone = "123456";
-            pacientes1.nomeResponsavel = "CarlosJose";
-            pacientes1.telefoneResponsavel = "123456";
-
-            ListaPacientes.lista.Add(pacientes1);
-                
-            foreach (ListaPacientes paci in ListaPacientes.lista)
+            while (reader.Read())
             {
-                LstPacientes.Items.Add(paci);
+                var pacientes = new ListaPacientes
+                {
+                id = reader.GetInt32(0),
+                nome = reader.GetString(1),
+                cpf = reader.GetString(2),
+                telefone = reader.GetString(3),
+                valor = reader.GetString(4),
+                status = reader.GetInt32(5) == 1 ? "Pago" : "Não Pago"
+                };
+
+                LstPacientes.Items.Add(pacientes);
             }
+
         }
+
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            string? teste;
-            int? id;
-
             if (LstPacientes.SelectedItem is ListaPacientes pacientes)
             {
-               TelaPaciente tela = new TelaPaciente();
-               tela.Show();
+                TelaPaciente tela = new TelaPaciente();
+                tela.Show();
             }
+        }
+
+        private void LstPacientes_Selected(object sender, RoutedEventArgs e)
+        {
 
         }
     }
