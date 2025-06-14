@@ -57,9 +57,8 @@ namespace ProntuarioPsicologia.UserControls
 
             if (LstPacientes.SelectedItem is ListaPacientes pacientes)
             {
-                teste = pacientes.nomeResponsavel;
-                id = pacientes.id;
-                MessageBox.Show(teste + " " + id);
+               TelaPaciente tela = new TelaPaciente();
+               tela.Show();
             }
 
         }

@@ -16,9 +16,9 @@
                     <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding id}"/>
                     <GridViewColumn Header="Nome Completo" DisplayMemberBinding="{Binding nome}"/>
                     <GridViewColumn Header="Telefone" DisplayMemberBinding="{Binding telefone}"/>
-                        <GridViewColumn Header="Nome do Responsável" Width="125" DisplayMemberBinding="{Binding nomeResponsavel}"/>
+                    <GridViewColumn Header="Nome do Responsável" Width="125" DisplayMemberBinding="{Binding nomeResponsavel}"/>
                     <GridViewColumn Header="Tel. Responsável" Width="125" DisplayMemberBinding="{Binding telefoneResponsavel}"/>
-                            <GridViewColumn Header="Status Pagamento"/>
+                    <GridViewColumn Header="Status Pagamento"/>
                 </GridView>
             </ListView.View>
         </ListView>
