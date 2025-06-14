@@ -9,8 +9,9 @@
     <Grid Background="White">
         <Button x:Name="btnConfirmar" Content="Confirmar" Margin="346,44,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click"/>
         <TextBox x:Name="txtCPF" HorizontalAlignment="Left" Margin="185,44,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152"/>
-        <ComboBox x:Name="cbxPsi" Margin="435,44,0,0" Width="152" IsEditable="False" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <ComboBoxItem Content="Teste"/>
+        <ComboBox x:Name="cbxPsi" Margin="435,44,0,0" Width="152" IsEditable="False" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="cbxPsi_SelectionChanged">
+            <ComboBoxItem Content="Alice Martins"/>
+            <ComboBoxItem Content="Igor Ferreira"/>
         </ComboBox>
         <Label x:Name="lblCPF" Content="CPF:" HorizontalAlignment="Left" Margin="185,22,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblPsi"  Content="Selecione o Psicologo:" HorizontalAlignment="Left" Margin="435,22,0,0" VerticalAlignment="Top"/>
@@ -49,7 +50,7 @@
         <Label x:Name="lblTelefoneResponsavel" Content="Telefone do Responsavel:*" HorizontalAlignment="Left" Margin="185,336,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtTelefoneConfianca" HorizontalAlignment="Left" Margin="407,355,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
         <Label x:Name="lblTelefoneConfianca" Content="Telefone de Confiança:*" HorizontalAlignment="Left" Margin="407,336,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnCadastrar" Content="Cadastrar" Margin="406,398,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181"/>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" Margin="406,398,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181" Click="btnCadastrar_Click"/>
 
     </Grid>
 </UserControl>
