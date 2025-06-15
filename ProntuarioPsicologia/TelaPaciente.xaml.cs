@@ -21,6 +21,7 @@ namespace ProntuarioPsicologia
     /// </summary>
     public partial class TelaPaciente : Window
     {
+        
         public TelaPaciente()
         {
             InitializeComponent();
@@ -32,14 +33,60 @@ namespace ProntuarioPsicologia
 
         private void btnAdicionar_Click(object sender, RoutedEventArgs e)
         {
-            Registro registro = new Registro();
             this.Hide();
+            Registro registro = new Registro();
             registro.Show();
-            return;
+            this.Show();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+  
+        }
+
+      
+        private void lstProntuario_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CarregarRegistros()
+        {
+            lstProntuario.Items.Clear();
+
+            foreach (ListaPacientes pacientes in ListaPacientes.lista)
+            {
+                using (var conexao = new MySqlConnection(data_source))
+                {
+                    conexao.Open();
+
+                    string sql = "SELECT id_registro, data_registro FROM registros WHERE id_paciente = @id ORDER BY id_registro ASC";
+                    using (MySqlCommand comand = new MySqlCommand(sql, conexao))
+                    {
+                        comand.Parameters.AddWithValue("@id", pacientes.id);
+
+                        using (MySqlDataReader reader = comand.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var registro = new PacienteSelecionado
+                                {
+                                    idRegistro = reader.GetInt32(0),
+                                    dataPaciente = reader.GetString(1)
+                                };
+
+                                lstProntuario.Items.Add(registro);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            CarregarRegistros();
+
             int nota;
             int pago;
             int psi;
@@ -75,7 +122,7 @@ namespace ProntuarioPsicologia
                         else
                             ckbPago.IsChecked = true;
                         txtNomeResponsavel.Text = reader.GetString(7);
-                        txtTelefoneResponsavel.Text= reader.GetString(8);
+                        txtTelefoneResponsavel.Text = reader.GetString(8);
                         txtTelefoneConfianca.Text = reader.GetString(9);
                         psi = reader.GetInt32(10);
                         if (psi == 1)
@@ -86,6 +133,11 @@ namespace ProntuarioPsicologia
                     reader.Close();
                 }
             }
+        }
+
+        private void lstProntuario_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

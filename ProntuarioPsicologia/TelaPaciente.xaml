@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:ProntuarioPsicologia"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="TelaPaciente" Height="475" Width="702" ResizeMode="NoResize" Loaded="Window_Loaded">
+        Title="TelaPaciente" Height="475" Width="651" ResizeMode="NoResize" Loaded="Window_Loaded_1">
     <Grid Margin="0,0,-13,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="413*"/>
             <ColumnDefinition Width="302*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btnAdicionar" Content="Novo Registro" Margin="138,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="132" Click="btnAdicionar_Click" Grid.Column="1"/>
+        <Button x:Name="btnAdicionar" Content="Novo Registro" Margin="87,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="132" Click="btnAdicionar_Click" Grid.Column="1"/>
         <TextBox x:Name="txtCPF" HorizontalAlignment="Left" Margin="12,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152" IsEnabled="False"/>
         <TextBox x:Name="txtPsicologo" HorizontalAlignment="Left" Margin="262,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152" IsEnabled="False" Grid.ColumnSpan="2"/>
         <Label x:Name="lblCPF" Content="CPF:" HorizontalAlignment="Left" Margin="12,13,0,0" VerticalAlignment="Top"/>
@@ -42,11 +42,11 @@
             </Button.BorderBrush>
         </Button>
         <CheckBox x:Name="ckbPago" Content="Pago" Margin="291,228,0,0" VerticalAlignment="Top" />
-        <ListView x:Name="lstProntuario" Margin="10,96,21,40" Grid.Column="1">
+        <ListView x:Name="lstProntuario" Margin="66,96,36,40" Grid.Column="1" BorderBrush="Black" OpacityMask="Black" BorderThickness="1,1,1,1" SelectionChanged="lstProntuario_SelectionChanged_1">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Data de Registro"/>
-                    <GridViewColumn Header="Não sei, pensarei"/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding idRegistro}"/>
+                    <GridViewColumn Header="Data de Registro" DisplayMemberBinding="{Binding dataPaciente}"/>
                 </GridView>
             </ListView.View>
         </ListView>

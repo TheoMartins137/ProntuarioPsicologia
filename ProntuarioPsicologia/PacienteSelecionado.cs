@@ -8,16 +8,11 @@ namespace ProntuarioPsicologia
 {
     public class PacienteSelecionado
     {
-        public PacienteSelecionado(int? id, string? cpf)
-        {
-            this.id = id;
-            this.cpf = cpf;
-        }
 
         public PacienteSelecionado() { }
 
-        public int? id { get; set; }
-        public string? cpf { get; set; }
+        public int? idRegistro { get; set; }
+        public string? dataPaciente { get; set; }
 
         public static List<PacienteSelecionado> Selecionado = new List<PacienteSelecionado>();
     }
