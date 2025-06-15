@@ -43,12 +43,12 @@ namespace ProntuarioPsicologia.UserControls
             {
                 var pacientes = new ListaPacientes
                 {
-                id = reader.GetInt32(0),
-                nome = reader.GetString(1),
-                cpf = reader.GetString(2),
-                telefone = reader.GetString(3),
-                valor = reader.GetString(4),
-                status = reader.GetInt32(5) == 1 ? "Pago" : "Não Pago"
+                    id = reader.GetInt32(0),
+                    nome = reader.GetString(1),
+                    cpf = reader.GetString(2),
+                    telefone = reader.GetString(3),
+                    valor = reader.GetString(4),
+                    status = reader.GetInt32(5) == 1 ? "Pago" : "Não Pago"
                 };
 
                 LstPacientes.Items.Add(pacientes);
@@ -70,5 +70,82 @@ namespace ProntuarioPsicologia.UserControls
         {
 
         }
+
+        private void cbxPsi_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LstPacientes.Items.Clear();
+            Atualizar();
+        }
+
+        private void cbxStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LstPacientes.Items.Clear();
+            Atualizar();
+        }
+
+        private void Atualizar()
+        {
+            int? pago;
+            int? pago2;
+
+            try
+            {
+                Conexao = new MySqlConnection(data_source);
+                Conexao.Open();
+
+                string sql = "SELECT id_pacientes, nome, cpf_pacientes, telefone, valor, valor_pago FROM pacientes WHERE 1=1";
+
+                if (cbxPsi.SelectedIndex != -1)
+                    sql += " AND id_psicologo = @id";
+
+                if (cbxStatus.SelectedIndex != -1)
+                    sql += " AND valor_pago = @valor";
+
+                sql += " ORDER BY id_pacientes ASC";
+
+                MySqlCommand comand = new MySqlCommand(sql, Conexao);
+
+                if (cbxPsi.SelectedIndex == 0)
+                    pago = 1;
+                else
+                    pago = 2;
+
+                if (cbxStatus.SelectedIndex == 0)
+                    pago2 = 1;
+                else
+                    pago2 = 0;
+
+                comand.Parameters.AddWithValue("@valor", pago2);
+                comand.Parameters.AddWithValue("@id", pago);
+
+                MySqlDataReader reader = comand.ExecuteReader();
+                LstPacientes.Items.Clear();
+
+                while (reader.Read())
+                {
+                    var pacientes = new ListaPacientes
+                    {
+                        id = reader.GetInt32(0),
+                        nome = reader.GetString(1),
+                        cpf = reader.GetString(2),
+                        telefone = reader.GetString(3),
+                        valor = reader.GetString(4),
+                        status = reader.GetInt32(5) == 1 ? "Pago" : "Não Pago"
+                    };
+
+                    LstPacientes.Items.Add(pacientes);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Conexao.Close();
+            }
+
+        }
+
     }
 }
