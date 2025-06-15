@@ -6,29 +6,33 @@
         xmlns:local="clr-namespace:ProntuarioPsicologia"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="TelaPaciente" Height="475" Width="702" ResizeMode="NoResize">
+        Title="TelaPaciente" Height="475" Width="702" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Grid Margin="0,0,-13,0">
-        <Button x:Name="btnAdicionar" Content="Novo Registro" Margin="551,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="132" Click="btnAdicionar_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="413*"/>
+            <ColumnDefinition Width="302*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnAdicionar" Content="Novo Registro" Margin="138,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="132" Click="btnAdicionar_Click" Grid.Column="1"/>
         <TextBox x:Name="txtCPF" HorizontalAlignment="Left" Margin="12,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152" IsEnabled="False"/>
-        <TextBox x:Name="txtPsicologo" HorizontalAlignment="Left" Margin="262,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152" IsEnabled="False"/>
+        <TextBox x:Name="txtPsicologo" HorizontalAlignment="Left" Margin="262,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152" IsEnabled="False" Grid.ColumnSpan="2"/>
         <Label x:Name="lblCPF" Content="CPF:" HorizontalAlignment="Left" Margin="12,13,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblPsi"  Content="Psicologo:" HorizontalAlignment="Left" Margin="262,13,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="12,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="402"/>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="12,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="402" Grid.ColumnSpan="2"/>
         <Label x:Name="lblNome" Content="Nome Completo:" HorizontalAlignment="Left" Margin="12,75,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="DTANasc" Margin="12,160,0,0" VerticalAlignment="Top" Width="180" IsEnabled="False"/>
         <Label x:Name="lblNasc" Content="Data de nascimento:" HorizontalAlignment="Left" Margin="12,141,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtTelefone" HorizontalAlignment="Left" Margin="234,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
+        <TextBox x:Name="txtTelefone" HorizontalAlignment="Left" Margin="234,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="2"/>
         <Label x:Name="lblTelefone" Content="Telefone:" HorizontalAlignment="Left" Margin="234,141,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtValor" HorizontalAlignment="Left" Margin="12,229,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152"/>
         <Label x:Name="lblValor" Content="Valor:" HorizontalAlignment="Left" Margin="12,209,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="ckbNota" Content="Com nota?" Margin="175,228,0,0" VerticalAlignment="Top" />
-        <TextBox x:Name="txtNomeResponsavel" HorizontalAlignment="Left" Margin="12,290,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="402"/>
+        <TextBox x:Name="txtNomeResponsavel" HorizontalAlignment="Left" Margin="12,290,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="402" Grid.ColumnSpan="2"/>
         <Label x:Name="lblNomeResponsavel" Content="Nome Completo do Responsavel:*" HorizontalAlignment="Left" Margin="12,269,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtTelefoneResponsavel" HorizontalAlignment="Left" Margin="12,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
         <Label x:Name="lblTelefoneResponsavel" Content="Telefone do Responsavel:*" HorizontalAlignment="Left" Margin="12,327,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtTelefoneConfianca" HorizontalAlignment="Left" Margin="234,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
+        <TextBox x:Name="txtTelefoneConfianca" HorizontalAlignment="Left" Margin="234,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="2"/>
         <Label x:Name="lblTelefoneConfianca" Content="Telefone de Confiança:*" HorizontalAlignment="Left" Margin="234,327,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnAtualizar" Content="Atualizar" Margin="233,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181"/>
+        <Button x:Name="btnAtualizar" Content="Atualizar" Margin="233,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181" Grid.ColumnSpan="2"/>
         <Button x:Name="btnExcluir" Content="Excluir" Margin="12,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181" Foreground="Black">
             <Button.Background>
                 <SolidColorBrush Color="#FFD72626"/>
@@ -38,7 +42,7 @@
             </Button.BorderBrush>
         </Button>
         <CheckBox x:Name="ckbPago" Content="Pago" Margin="291,228,0,0" VerticalAlignment="Top" />
-        <ListView x:Name="lstProntuario" Margin="423,96,21,40">
+        <ListView x:Name="lstProntuario" Margin="10,96,21,40" Grid.Column="1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Data de Registro"/>

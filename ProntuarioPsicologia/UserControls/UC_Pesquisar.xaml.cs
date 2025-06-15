@@ -61,6 +61,12 @@ namespace ProntuarioPsicologia.UserControls
         {
             if (LstPacientes.SelectedItem is ListaPacientes pacientes)
             {
+                pacientes.id = pacientes.id;
+                pacientes.cpf = pacientes.cpf;
+
+                ListaPacientes.lista.Clear();
+                ListaPacientes.lista.Add(pacientes);
+
                 TelaPaciente tela = new TelaPaciente();
                 tela.Show();
             }
