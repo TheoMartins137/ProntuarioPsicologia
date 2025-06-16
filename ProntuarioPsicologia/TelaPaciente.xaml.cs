@@ -21,7 +21,7 @@ namespace ProntuarioPsicologia
     /// </summary>
     public partial class TelaPaciente : Window
     {
-        
+
         public TelaPaciente()
         {
             InitializeComponent();
@@ -38,14 +38,15 @@ namespace ProntuarioPsicologia
             Registro registro = new Registro();
             registro.ShowDialog();
             this.Show();
+            CarregarRegistros();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-  
+
         }
 
-      
+
         private void lstProntuario_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -149,6 +150,7 @@ namespace ProntuarioPsicologia
                 this.Hide();
                 Registro registro = new Registro();
                 registro.ShowDialog();
+                CarregarRegistros();
                 this.Show();
 
             }
@@ -189,7 +191,7 @@ namespace ProntuarioPsicologia
                         cmd.Parameters.AddWithValue("@pago", 0);
 
                     cmd.Parameters.AddWithValue("@id", pacientes.id);
-                        cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
 
                     MessageBoxResult result = MessageBox.Show("Verifique os campos antes de atualizar. \n \r Deseja Atualizar?", "ATENÇÂO", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (result == MessageBoxResult.Yes)
@@ -202,7 +204,7 @@ namespace ProntuarioPsicologia
                     {
                         return;
                     }
-            }
+                }
 
             }
             catch (MySqlException ex)
@@ -218,6 +220,58 @@ namespace ProntuarioPsicologia
             finally
             {
                 Conexao.Close();
+            }
+        }
+
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show(" Deseja excluir o cadastro do paciente? \n \r Os prontuários serão excluídos em conjunto. \n \r Não é possível reverter a ação.", "EXCLUIR", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    foreach (ListaPacientes pacientes in ListaPacientes.lista)
+                    {
+                        Conexao = new MySqlConnection(data_source);
+                        Conexao.Open();
+
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.Connection = Conexao;
+
+                        cmd.Parameters.Clear();
+                        cmd.CommandText = "DELETE FROM registros WHERE id_paciente = @id";
+                        cmd.Parameters.AddWithValue("id", pacientes.id);
+                        cmd.ExecuteNonQuery();
+
+                        cmd.CommandText = "DELETE FROM pacientes WHERE id_pacientes = @id2";
+                        cmd.Parameters.AddWithValue("@id2", pacientes.id);
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Cadastro excluido com sucesso. \n \r Atualize a lista na tela principal!", "SUCESSO", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        this.Close();
+
+                    }
+
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error " + "has occured: " + ex.Message,
+                       "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Has occured: " + ex.Message,
+                        "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                finally
+                {
+                    Conexao.Close();
+                }
+            }
+            else
+            {
+                return;
             }
         }
     }

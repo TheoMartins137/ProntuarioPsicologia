@@ -12,6 +12,7 @@
         <DatePicker x:Name="DTARegistro" Margin="13,33,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnInsert" Content="Salvar" Margin="467,33,0,0" VerticalAlignment="Top" Width="133" Height="32" TextBlock.TextAlignment="Justify" Click="btnInsert_Click"/>
         <Button x:Name="btnUpdate" Content="Atualizar" Margin="467,33,0,0" VerticalAlignment="Top" Width="133" Height="32" TextBlock.TextAlignment="Justify" Click="btnUpdate_Click"/>
+        <Button x:Name="btnDelete" Content="Excluir" Margin="250,33,0,0" VerticalAlignment="Top" Width="133" Height="32" HorizontalAlignment="Left" Background="#FFD72626" Click="btnDelete_Click"/>
 
     </Grid>
 </Window>

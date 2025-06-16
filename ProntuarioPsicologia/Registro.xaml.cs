@@ -34,6 +34,8 @@ namespace ProntuarioPsicologia
         {
             if(PacienteSelecionado.Selecionado.Count == 0)
             {
+                btnDelete.IsEnabled = false;
+                btnDelete.Visibility = Visibility.Collapsed;
                 btnInsert.IsEnabled = true;
                 btnInsert.Visibility = Visibility.Visible;
                 btnUpdate.Visibility = Visibility.Collapsed;
@@ -41,6 +43,8 @@ namespace ProntuarioPsicologia
             }
             else
             {
+                btnDelete.IsEnabled = true;
+                btnDelete.Visibility = Visibility.Visible;
                 btnUpdate.IsEnabled = true;
                 btnUpdate.Visibility = Visibility.Visible;
                 btnInsert.Visibility = Visibility.Collapsed;
@@ -93,6 +97,7 @@ namespace ProntuarioPsicologia
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Registro salvo!");
+                    this.Close();
                 }
 
             }
@@ -135,6 +140,7 @@ namespace ProntuarioPsicologia
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Registro atualizado com sucesso.");
+                    this.Close();
                 }
 
             }
@@ -151,6 +157,58 @@ namespace ProntuarioPsicologia
             finally
             {
                 Conexao.Close();
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show(" Deseja excluir o registro do paciente? \n \r Não é possível reverter a ação.", "EXCLUIR", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    foreach (PacienteSelecionado pacientes in PacienteSelecionado.Selecionado)
+                    {
+                        Conexao = new MySqlConnection(data_source);
+                        Conexao.Open();
+
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.Connection = Conexao;
+
+                        cmd.Parameters.Clear();
+                        cmd.CommandText = "DELETE FROM registros WHERE id_registro = @id";
+                        cmd.Parameters.AddWithValue("id", pacientes.idRegistro);
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Registro excluido com sucesso.", "SUCESSO", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        this.Close();
+                    }
+
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error " + "has occured: " + ex.Message,
+                       "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Has occured: " + ex.Message,
+                        "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                finally
+                {
+                    Conexao.Close();
+                }
+            }
+            else
+            {
+                return;
             }
         }
     }
