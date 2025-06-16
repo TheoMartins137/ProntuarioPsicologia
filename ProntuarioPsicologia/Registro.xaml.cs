@@ -96,7 +96,7 @@ namespace ProntuarioPsicologia
                     cmd.Parameters.AddWithValue("@data_paciente", DTARegistro.Text);
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Registro salvo!");
+                    MessageBox.Show("Registro salvo!", "SUCESSO", MessageBoxButton.OK, MessageBoxImage.Information);
                     this.Close();
                 }
 
@@ -139,7 +139,7 @@ namespace ProntuarioPsicologia
                     cmd.Parameters.AddWithValue("@id", pacientes.idRegistro);
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Registro atualizado com sucesso.");
+                    MessageBox.Show("Registro atualizado com sucesso.", "SUCESSO", MessageBoxButton.OK, MessageBoxImage.Information);
                     this.Close();
                 }
 

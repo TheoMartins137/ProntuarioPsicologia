@@ -250,7 +250,6 @@ namespace ProntuarioPsicologia
                         MessageBox.Show("Cadastro excluido com sucesso. \n \r Atualize a lista na tela principal!", "SUCESSO", MessageBoxButton.OK, MessageBoxImage.Information);
 
                         this.Close();
-
                     }
 
                 }
