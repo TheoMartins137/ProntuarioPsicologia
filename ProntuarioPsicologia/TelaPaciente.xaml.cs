@@ -33,9 +33,10 @@ namespace ProntuarioPsicologia
 
         private void btnAdicionar_Click(object sender, RoutedEventArgs e)
         {
+            PacienteSelecionado.Selecionado.Clear();
             this.Hide();
             Registro registro = new Registro();
-            registro.Show();
+            registro.ShowDialog();
             this.Show();
         }
 
@@ -137,6 +138,20 @@ namespace ProntuarioPsicologia
 
         private void lstProntuario_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
+            if (lstProntuario.SelectedItem is PacienteSelecionado pacienteSelecionado)
+            {
+                pacienteSelecionado.idRegistro = pacienteSelecionado.idRegistro;
+                pacienteSelecionado.dataPaciente = pacienteSelecionado.dataPaciente;
+
+                PacienteSelecionado.Selecionado.Clear();
+                PacienteSelecionado.Selecionado.Add(pacienteSelecionado);
+
+                this.Hide();
+                Registro registro = new Registro();
+                registro.ShowDialog();
+                this.Show();
+
+            }
 
         }
     }

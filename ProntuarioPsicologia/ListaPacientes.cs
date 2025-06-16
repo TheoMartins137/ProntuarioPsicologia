@@ -10,7 +10,7 @@ namespace ProntuarioPsicologia
     {
 
 
-        public ListaPacientes(int id, string? nome, string? telefone, string? cpf, string? valor, string? status)
+        public ListaPacientes(int id, string? nome, string? telefone, string? cpf, string? valor, string? status, string? nota)
         {
             this.id = id;
             this.nome = nome;
@@ -18,6 +18,7 @@ namespace ProntuarioPsicologia
             this.cpf = cpf;
             this.valor = valor;
             this.status = status;
+            this.nota = nota;
         }
         public ListaPacientes() { }
 
@@ -27,6 +28,7 @@ namespace ProntuarioPsicologia
         public string? cpf {  get; set; }
         public string? valor { get; set; }
         public string? status { get; set; }
+        public string? nota { get; set; }
 
         public static List<ListaPacientes> lista = new List<ListaPacientes>(); 
     }

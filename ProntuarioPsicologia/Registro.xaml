@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProntuarioPsicologia"
         mc:Ignorable="d"
-        Title="Registro" Height="744" Width="628" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Registro" Height="744" Width="628" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Grid>
         <Label Content="Prontuário Psicológico" HorizontalAlignment="Center" Margin="0,9,0,0" VerticalAlignment="Top" Width="640" Background="#FFE6730C" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="txtProntuario" HorizontalAlignment="Center" Margin="0,71,0,0" Text="" VerticalAlignment="Top" Width="588" Height="619" TextWrapping="Wrap" AcceptsReturn="True"/>
-        <DatePicker Margin="436,33,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DTARegistro" Margin="13,33,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnInsert" Content="Salvar" Margin="467,33,0,0" VerticalAlignment="Top" Width="133" Height="32" TextBlock.TextAlignment="Justify" Click="btnInsert_Click"/>
+        <Button x:Name="btnUpdate" Content="Atualizar" Margin="467,33,0,0" VerticalAlignment="Top" Width="133" Height="32" TextBlock.TextAlignment="Justify" Click="btnUpdate_Click"/>
 
     </Grid>
 </Window>

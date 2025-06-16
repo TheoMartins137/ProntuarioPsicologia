@@ -33,7 +33,7 @@ namespace ProntuarioPsicologia.UserControls
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = Conexao;
 
-            string sql = "SELECT id_pacientes, nome, cpf_pacientes, telefone, valor, valor_pago FROM pacientes ORDER BY id_pacientes ASC";
+            string sql = "SELECT id_pacientes, nome, cpf_pacientes, telefone, valor,valor_nota, valor_pago FROM pacientes ORDER BY id_pacientes ASC";
             MySqlCommand comand = new MySqlCommand(sql, Conexao);
 
             MySqlDataReader reader = comand.ExecuteReader();
@@ -48,7 +48,8 @@ namespace ProntuarioPsicologia.UserControls
                     cpf = reader.GetString(2),
                     telefone = reader.GetString(3),
                     valor = reader.GetString(4),
-                    status = reader.GetInt32(5) == 1 ? "Pago" : "Não Pago"
+                    nota = reader.GetInt32(5) == 1 ? "Com Nota" : "Sem Nota",
+                    status = reader.GetInt32(6) == 1 ? "Pago" : "Não Pago"
                 };
 
                 LstPacientes.Items.Add(pacientes);
