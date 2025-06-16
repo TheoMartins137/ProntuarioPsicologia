@@ -32,7 +32,7 @@
         <Label x:Name="lblTelefoneResponsavel" Content="Telefone do Responsavel:*" HorizontalAlignment="Left" Margin="12,327,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtTelefoneConfianca" HorizontalAlignment="Left" Margin="234,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="2"/>
         <Label x:Name="lblTelefoneConfianca" Content="Telefone de Confiança:*" HorizontalAlignment="Left" Margin="234,327,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnAtualizar" Content="Atualizar" Margin="233,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnAtualizar" Content="Atualizar" Margin="233,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181" Grid.ColumnSpan="2" Click="btnAtualizar_Click"/>
         <Button x:Name="btnExcluir" Content="Excluir" Margin="12,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181" Foreground="Black">
             <Button.Background>
                 <SolidColorBrush Color="#FFD72626"/>

@@ -33,6 +33,11 @@
         </ComboBox>
         <Label Content="Selecione o psicólogo:" HorizontalAlignment="Left" Margin="17,53,0,0" VerticalAlignment="Top"/>
         <Label Content="Status de pagamento:" HorizontalAlignment="Left" Margin="189,53,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnAtualizar" Content="" Margin="693,79,0,0" VerticalAlignment="Top" Width="36" Click="btnAtualizar_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="T:\Pogramação\ProntuarioPsicologia\ProntuarioPsicologia\Images\atualizar.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </UserControl>

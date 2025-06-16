@@ -154,5 +154,71 @@ namespace ProntuarioPsicologia
             }
 
         }
+
+        private void btnAtualizar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                foreach (ListaPacientes pacientes in ListaPacientes.lista)
+                {
+                    Conexao = new MySqlConnection(data_source);
+                    Conexao.Open();
+
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = Conexao;
+
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = "UPDATE pacientes " +
+                                      "SET nome = @nome, telefone = @telefone, valor = @valor, nome_responsavel = @responsavel, telefone_responsavel = @telresponsavel, telefone_confianca = @telconfianca, valor_nota = @nota, valor_pago = @pago  " +
+                                      "WHERE id_pacientes = @id";
+
+                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+                    cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+                    cmd.Parameters.AddWithValue("@valor", txtValor.Text);
+                    cmd.Parameters.AddWithValue("@responsavel", txtNomeResponsavel.Text);
+                    cmd.Parameters.AddWithValue("@telresponsavel", txtTelefoneResponsavel.Text);
+                    cmd.Parameters.AddWithValue("@telconfianca", txtTelefoneConfianca.Text);
+
+                    if (ckbNota.IsChecked == true)
+                        cmd.Parameters.AddWithValue("@nota", 1);
+                    else
+                        cmd.Parameters.AddWithValue("@nota", 0);
+                    if (ckbPago.IsChecked == true)
+                        cmd.Parameters.AddWithValue("@pago", 1);
+                    else
+                        cmd.Parameters.AddWithValue("@pago", 0);
+
+                    cmd.Parameters.AddWithValue("@id", pacientes.id);
+                        cmd.ExecuteNonQuery();
+
+                    MessageBoxResult result = MessageBox.Show("Verifique os campos antes de atualizar. \n \r Deseja Atualizar?", "ATENÇÂO", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Cadastro atualizado com sucesso.", "SUCESSO", MessageBoxButton.OK, MessageBoxImage.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        return;
+                    }
+            }
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error " + "has occured: " + ex.Message,
+                   "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Has occured: " + ex.Message,
+                    "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                Conexao.Close();
+            }
+        }
     }
 }

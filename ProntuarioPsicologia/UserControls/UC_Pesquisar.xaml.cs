@@ -100,7 +100,7 @@ namespace ProntuarioPsicologia.UserControls
                 Conexao = new MySqlConnection(data_source);
                 Conexao.Open();
 
-                string sql = "SELECT id_pacientes, nome, cpf_pacientes, telefone, valor, valor_pago FROM pacientes WHERE 1=1";
+                string sql = "SELECT id_pacientes, nome, cpf_pacientes, telefone, valor, valor_nota, valor_pago FROM pacientes WHERE 1=1";
 
                 if (cbxPsi.SelectedIndex != -1)
                     sql += " AND id_psicologo = @id";
@@ -137,7 +137,8 @@ namespace ProntuarioPsicologia.UserControls
                         cpf = reader.GetString(2),
                         telefone = reader.GetString(3),
                         valor = reader.GetString(4),
-                        status = reader.GetInt32(5) == 1 ? "Pago" : "Não Pago"
+                        status = reader.GetInt32(5) == 1 ? "Com Nota" : "Sem Nota",
+                        nota = reader.GetInt32(6) == 1 ? "Pago" : "Não Pago"
                     };
 
                     LstPacientes.Items.Add(pacientes);
@@ -154,5 +155,15 @@ namespace ProntuarioPsicologia.UserControls
 
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            LstPacientes.Items.Refresh();
+        }
+
+        private void btnAtualizar_Click(object sender, RoutedEventArgs e)
+        {
+            LstPacientes.Items.Clear();
+            Atualizar();
+        }
     }
 }
