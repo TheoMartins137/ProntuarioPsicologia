@@ -15,26 +15,6 @@
         </ComboBox>
         <Label x:Name="lblCPF" Content="CPF:" HorizontalAlignment="Left" Margin="185,22,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblPsi"  Content="Selecione o Psicologo:" HorizontalAlignment="Left" Margin="435,22,0,0" VerticalAlignment="Top"/>
-        <Label Content="-----------------------------------------------------------------------------" HorizontalAlignment="Left" Margin="-34,204,0,0" VerticalAlignment="Top" Width="432" Height="18" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="89.953"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label Content="-----------------------------------------------------------------------------" HorizontalAlignment="Left" Margin="370,207,0,0" VerticalAlignment="Top" Width="432" Height="18" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="89.953"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
         <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="185,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="402"/>
         <Label x:Name="lblNome" Content="Nome Completo:" HorizontalAlignment="Left" Margin="185,84,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="DTANasc" Margin="185,169,0,0" VerticalAlignment="Top" Width="180"/>

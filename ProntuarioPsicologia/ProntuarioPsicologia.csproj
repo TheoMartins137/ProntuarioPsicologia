@@ -15,6 +15,7 @@
   <ItemGroup>
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
     <PackageReference Include="MySql.Data" Version="9.3.0" />
+    <PackageReference Include="MySqlBackup.NET" Version="2.3.9" />
   </ItemGroup>
 
   <ItemGroup>
