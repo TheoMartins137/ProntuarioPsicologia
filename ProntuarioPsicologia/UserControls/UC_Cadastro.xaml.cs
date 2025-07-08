@@ -24,18 +24,29 @@ namespace ProntuarioPsicologia.UserControls
         public UC_Cadastro()
         {
             InitializeComponent();
+            EsconderRet();
             EsconderTudo();
         }
 
         public MySqlConnection Conexao = new MySqlConnection();
         private string data_source = "datasource=localhost;username=root;password=Martinsfreitas8;database=db_prontuario";
 
+        public void EsconderRet()
+        {
+            RetOpcional.Visibility = Visibility.Collapsed;
+        }
+
+        public void MostrarRet()
+        {
+            RetOpcional.Visibility = Visibility.Visible;
+        }
+
         public void EsconderTudo()
         {
             var controles = new Control[]
             {
-                txtNome, txtNomeResponsavel, txtTelefone, txtTelefoneConfianca, txtTelefoneResponsavel, txtValor,
-                lblNasc, lblNome, lblNomeResponsavel, lblTelefone, lblTelefone, lblTelefoneConfianca, lblTelefoneResponsavel, lblValor,
+                txtNome, txtNomeResponsavel, txtTelefone, txtTelefoneConfianca, txtValor,
+                lblNasc, lblNome, lblNomeResponsavel, lblTelefone, lblTelefone, lblTelefoneConfianca, lblValor,
                 DTANasc, ckbNota, btnCadastrar
             };
             foreach (var controle in controles)
@@ -50,8 +61,8 @@ namespace ProntuarioPsicologia.UserControls
         {
             var controles = new Control[]
             {
-                txtNome, txtNomeResponsavel, txtTelefone, txtTelefoneConfianca, txtTelefoneResponsavel, txtValor,
-                lblNasc, lblNome, lblNomeResponsavel, lblTelefone, lblTelefone, lblTelefoneConfianca, lblTelefoneResponsavel, lblValor,
+                txtNome, txtNomeResponsavel, txtTelefone, txtTelefoneConfianca, txtValor,
+                lblNasc, lblNome, lblNomeResponsavel, lblTelefone, lblTelefone, lblTelefoneConfianca, lblValor,
                 DTANasc, ckbNota, btnCadastrar
             };
             foreach (var controle in controles)
@@ -68,7 +79,6 @@ namespace ProntuarioPsicologia.UserControls
             txtNomeResponsavel.Text = "";
             txtTelefone.Text = "";
             txtTelefoneConfianca.Text = "";
-            txtTelefoneResponsavel.Text = "";
             txtValor.Text = "";
             txtCPF.Text = "";
 
@@ -110,6 +120,7 @@ namespace ProntuarioPsicologia.UserControls
                 }
                 else
                 {
+                    MostrarRet();
                     MostrarTudo();
                 }
 
@@ -132,6 +143,7 @@ namespace ProntuarioPsicologia.UserControls
 
         private void cbxPsi_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            EsconderRet();
             EsconderTudo();
         }
 
@@ -149,8 +161,8 @@ namespace ProntuarioPsicologia.UserControls
                 cmd.Connection = Conexao;
 
                 cmd.Parameters.Clear();
-                cmd.CommandText = "INSERT INTO pacientes (cpf_pacientes, nome, data_nascimento, telefone, valor, valor_nota, valor_pago, nome_responsavel, telefone_responsavel, telefone_confianca, id_psicologo)" +
-                             "VALUES(@cpf, @nome, @data_nasc , @telefone, @valor, @nota, @pago, @nome_responsavel, @telefone_responsavel, @telefone_confianca, @id_psicologo);";
+                cmd.CommandText = "INSERT INTO pacientes (cpf_pacientes, nome, data_nascimento, telefone, valor, valor_nota, valor_pago, nome_responsavel, telefone_responsavel, id_psicologo)" +
+                             "VALUES(@cpf, @nome, @data_nasc , @telefone, @valor, @nota, @pago, @nome_responsavel, @telefone_confianca, @id_psicologo);";
 
                 cmd.Parameters.AddWithValue("@cpf", txtCPF.Text);
                 cmd.Parameters.AddWithValue("@nome", txtNome.Text);
@@ -170,7 +182,6 @@ namespace ProntuarioPsicologia.UserControls
                 }
                 cmd.Parameters.AddWithValue("@pago", 0);
                 cmd.Parameters.AddWithValue("@nome_responsavel", txtNomeResponsavel.Text);
-                cmd.Parameters.AddWithValue("@telefone_responsavel", txtTelefoneResponsavel.Text);
                 cmd.Parameters.AddWithValue("@telefone_confianca", txtTelefoneConfianca.Text);
 
                 if (cbxPsi.Text == "Alice Martins")
@@ -196,6 +207,7 @@ namespace ProntuarioPsicologia.UserControls
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Cadastro realizado com sucesso", "SUCESSO", MessageBoxButton.OK, MessageBoxImage.Information);
                         EsconderTudo();
+                        EsconderRet();
                         LimparTudo();
                     }
                     else

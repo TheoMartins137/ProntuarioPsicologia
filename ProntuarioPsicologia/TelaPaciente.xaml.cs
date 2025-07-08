@@ -98,7 +98,7 @@ namespace ProntuarioPsicologia
                 Conexao = new MySqlConnection(data_source);
                 Conexao.Open();
 
-                string sql = "SELECT cpf_pacientes, nome, data_nascimento, telefone, valor, valor_nota, valor_pago, nome_responsavel, telefone_responsavel, telefone_confianca, id_psicologo FROM pacientes WHERE id_pacientes = @id";
+                string sql = "SELECT cpf_pacientes, nome, data_nascimento, telefone, valor, valor_nota, valor_pago, nome_responsavel, telefone_responsavel, id_psicologo FROM pacientes WHERE id_pacientes = @id";
                 MySqlCommand buscar = new MySqlCommand(sql, Conexao);
                 buscar.Parameters.AddWithValue("@id", pacientes.id);
 
@@ -125,8 +125,7 @@ namespace ProntuarioPsicologia
                             ckbPago.IsChecked = true;
                         txtNomeResponsavel.Text = reader.GetString(7);
                         txtTelefoneResponsavel.Text = reader.GetString(8);
-                        txtTelefoneConfianca.Text = reader.GetString(9);
-                        psi = reader.GetInt32(10);
+                        psi = reader.GetInt32(9);
                         if (psi == 1)
                             txtPsicologo.Text = "Alice Martins";
                         else
@@ -171,7 +170,7 @@ namespace ProntuarioPsicologia
 
                     cmd.Parameters.Clear();
                     cmd.CommandText = "UPDATE pacientes " +
-                                      "SET nome = @nome, telefone = @telefone, valor = @valor, nome_responsavel = @responsavel, telefone_responsavel = @telresponsavel, telefone_confianca = @telconfianca, valor_nota = @nota, valor_pago = @pago  " +
+                                      "SET nome = @nome, telefone = @telefone, valor = @valor, nome_responsavel = @responsavel, telefone_responsavel = @telresponsavel, valor_nota = @nota, valor_pago = @pago  " +
                                       "WHERE id_pacientes = @id";
 
                     cmd.Parameters.AddWithValue("@nome", txtNome.Text);
@@ -179,7 +178,6 @@ namespace ProntuarioPsicologia
                     cmd.Parameters.AddWithValue("@valor", txtValor.Text);
                     cmd.Parameters.AddWithValue("@responsavel", txtNomeResponsavel.Text);
                     cmd.Parameters.AddWithValue("@telresponsavel", txtTelefoneResponsavel.Text);
-                    cmd.Parameters.AddWithValue("@telconfianca", txtTelefoneConfianca.Text);
 
                     if (ckbNota.IsChecked == true)
                         cmd.Parameters.AddWithValue("@nota", 1);

@@ -67,7 +67,6 @@ namespace ProntuarioPsicologia.UserControls
 
                 ListaPacientes.lista.Clear();
                 ListaPacientes.lista.Add(pacientes);
-
                 TelaPaciente tela = new TelaPaciente();
                 tela.ShowDialog();
                 Atualizar();

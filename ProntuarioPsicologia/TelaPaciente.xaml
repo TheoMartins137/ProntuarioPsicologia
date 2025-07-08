@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProntuarioPsicologia"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="TelaPaciente" Height="475" Width="651" ResizeMode="NoResize" Loaded="Window_Loaded_1">
+        Title="TelaPaciente" Height="475" Width="900" ResizeMode="NoResize" Loaded="Window_Loaded_1">
     <Grid Margin="0,0,-13,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="413*"/>
@@ -26,12 +26,10 @@
         <TextBox x:Name="txtValor" HorizontalAlignment="Left" Margin="12,229,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152"/>
         <Label x:Name="lblValor" Content="Valor:" HorizontalAlignment="Left" Margin="12,209,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="ckbNota" Content="Com nota?" Margin="175,228,0,0" VerticalAlignment="Top" />
-        <TextBox x:Name="txtNomeResponsavel" HorizontalAlignment="Left" Margin="12,290,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="402" Grid.ColumnSpan="2"/>
-        <Label x:Name="lblNomeResponsavel" Content="Nome Completo do Responsavel:*" HorizontalAlignment="Left" Margin="12,269,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtTelefoneResponsavel" HorizontalAlignment="Left" Margin="12,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
-        <Label x:Name="lblTelefoneResponsavel" Content="Telefone do Responsavel:*" HorizontalAlignment="Left" Margin="12,327,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtTelefoneConfianca" HorizontalAlignment="Left" Margin="234,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="2"/>
-        <Label x:Name="lblTelefoneConfianca" Content="Telefone de Confiança:*" HorizontalAlignment="Left" Margin="234,327,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNomeResponsavel" HorizontalAlignment="Left" Margin="24,296,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="356"/>
+        <Label x:Name="lblNomeResponsavel" Content="Nome Completo do Responsavel:*" HorizontalAlignment="Left" Margin="24,275,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtTelefoneResponsavel" HorizontalAlignment="Left" Margin="395,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblTelefoneResponsavel" Content="Telefone do Responsavel:*" HorizontalAlignment="Left" Margin="395,275,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="161"/>
         <Button x:Name="btnAtualizar" Content="Atualizar" Margin="233,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181" Grid.ColumnSpan="2" Click="btnAtualizar_Click"/>
         <Button x:Name="btnExcluir" Content="Excluir" Margin="12,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181" Foreground="Black" Click="btnExcluir_Click">
             <Button.Background>
@@ -50,6 +48,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Rectangle x:Name="RetOpcional" HorizontalAlignment="Left" Height="75" Margin="14,267,0,0" Stroke="Black" VerticalAlignment="Top" Width="559" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>
