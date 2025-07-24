@@ -98,7 +98,7 @@ namespace ProntuarioPsicologia
                 Conexao = new MySqlConnection(data_source);
                 Conexao.Open();
 
-                string sql = "SELECT cpf_pacientes, nome, data_nascimento, telefone, valor, valor_nota, valor_pago, nome_responsavel, telefone_responsavel, id_psicologo FROM pacientes WHERE id_pacientes = @id";
+                string sql = "SELECT cpf_pacientes, nome, data_nascimento, telefone, valor, valor_nota, valor_pago, nome_responsavel, telefone_responsavel, id_psicologo, observacoes FROM pacientes WHERE id_pacientes = @id";
                 MySqlCommand buscar = new MySqlCommand(sql, Conexao);
                 buscar.Parameters.AddWithValue("@id", pacientes.id);
 
@@ -130,6 +130,9 @@ namespace ProntuarioPsicologia
                             txtPsicologo.Text = "Alice Martins";
                         else
                             txtPsicologo.Text = "Igor Ferreira";
+
+                        if (!reader.IsDBNull(10))
+                        txtObservacoes.Text = reader.GetString(10);
                     }
                     reader.Close();
                 }
@@ -170,7 +173,7 @@ namespace ProntuarioPsicologia
 
                     cmd.Parameters.Clear();
                     cmd.CommandText = "UPDATE pacientes " +
-                                      "SET nome = @nome, telefone = @telefone, valor = @valor, nome_responsavel = @responsavel, telefone_responsavel = @telresponsavel, valor_nota = @nota, valor_pago = @pago  " +
+                                      "SET nome = @nome, telefone = @telefone, valor = @valor, nome_responsavel = @responsavel, telefone_responsavel = @telresponsavel, valor_nota = @nota, valor_pago = @pago, observacoes = @observacoes  " +
                                       "WHERE id_pacientes = @id";
 
                     cmd.Parameters.AddWithValue("@nome", txtNome.Text);
@@ -178,6 +181,7 @@ namespace ProntuarioPsicologia
                     cmd.Parameters.AddWithValue("@valor", txtValor.Text);
                     cmd.Parameters.AddWithValue("@responsavel", txtNomeResponsavel.Text);
                     cmd.Parameters.AddWithValue("@telresponsavel", txtTelefoneResponsavel.Text);
+                    cmd.Parameters.AddWithValue("@observacoes", txtObservacoes.Text);
 
                     if (ckbNota.IsChecked == true)
                         cmd.Parameters.AddWithValue("@nota", 1);

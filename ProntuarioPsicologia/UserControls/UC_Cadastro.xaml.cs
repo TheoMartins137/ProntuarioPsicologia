@@ -45,8 +45,8 @@ namespace ProntuarioPsicologia.UserControls
         {
             var controles = new Control[]
             {
-                txtNome, txtNomeResponsavel, txtTelefone, txtTelefoneConfianca, txtValor,
-                lblNasc, lblNome, lblNomeResponsavel, lblTelefone, lblTelefone, lblTelefoneConfianca, lblValor,
+                txtNome, txtNomeResponsavel, txtTelefone, txtTelefoneConfianca, txtValor, txtObservacao,
+                lblNasc, lblNome, lblNomeResponsavel, lblTelefone, lblTelefone, lblTelefoneConfianca, lblValor, lblObservacao,
                 DTANasc, ckbNota, btnCadastrar
             };
             foreach (var controle in controles)
@@ -61,8 +61,8 @@ namespace ProntuarioPsicologia.UserControls
         {
             var controles = new Control[]
             {
-                txtNome, txtNomeResponsavel, txtTelefone, txtTelefoneConfianca, txtValor,
-                lblNasc, lblNome, lblNomeResponsavel, lblTelefone, lblTelefone, lblTelefoneConfianca, lblValor,
+                txtNome, txtNomeResponsavel, txtTelefone, txtTelefoneConfianca, txtValor, txtObservacao,
+                lblNasc, lblNome, lblNomeResponsavel, lblTelefone, lblTelefone, lblTelefoneConfianca, lblValor, lblObservacao,
                 DTANasc, ckbNota, btnCadastrar
             };
             foreach (var controle in controles)
@@ -81,6 +81,7 @@ namespace ProntuarioPsicologia.UserControls
             txtTelefoneConfianca.Text = "";
             txtValor.Text = "";
             txtCPF.Text = "";
+            txtObservacao.Text = "";
 
             cbxPsi.SelectedIndex = -1;
             DTANasc.SelectedDate = null;
@@ -161,8 +162,8 @@ namespace ProntuarioPsicologia.UserControls
                 cmd.Connection = Conexao;
 
                 cmd.Parameters.Clear();
-                cmd.CommandText = "INSERT INTO pacientes (cpf_pacientes, nome, data_nascimento, telefone, valor, valor_nota, valor_pago, nome_responsavel, telefone_responsavel, id_psicologo)" +
-                             "VALUES(@cpf, @nome, @data_nasc , @telefone, @valor, @nota, @pago, @nome_responsavel, @telefone_confianca, @id_psicologo);";
+                cmd.CommandText = "INSERT INTO pacientes (cpf_pacientes, nome, data_nascimento, telefone, valor, valor_nota, valor_pago, nome_responsavel, telefone_responsavel, id_psicologo, observacoes)" +
+                             "VALUES(@cpf, @nome, @data_nasc , @telefone, @valor, @nota, @pago, @nome_responsavel, @telefone_confianca, @id_psicologo, @observacoes);";
 
                 cmd.Parameters.AddWithValue("@cpf", txtCPF.Text);
                 cmd.Parameters.AddWithValue("@nome", txtNome.Text);
@@ -183,6 +184,7 @@ namespace ProntuarioPsicologia.UserControls
                 cmd.Parameters.AddWithValue("@pago", 0);
                 cmd.Parameters.AddWithValue("@nome_responsavel", txtNomeResponsavel.Text);
                 cmd.Parameters.AddWithValue("@telefone_confianca", txtTelefoneConfianca.Text);
+                cmd.Parameters.AddWithValue("@observacoes", txtObservacao.Text);
 
                 if (cbxPsi.Text == "Alice Martins")
                 {

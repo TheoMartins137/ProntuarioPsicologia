@@ -29,7 +29,9 @@
         <TextBox x:Name="txtTelefoneConfianca" HorizontalAlignment="Left" Margin="464,308,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
         <Label x:Name="lblTelefoneConfianca" Content="Telefone de Confiança:*" HorizontalAlignment="Left" Margin="464,289,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnCadastrar" Content="Cadastrar" Margin="247,379,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181" Click="btnCadastrar_Click"/>
-        <Rectangle x:Name="RetOpcional" HorizontalAlignment="Left" Height="75" Margin="27,283,0,0" Stroke="Black" VerticalAlignment="Top" Width="638"/>
+        <Rectangle x:Name="RetOpcional" HorizontalAlignment="Left" Height="75" Margin="27,283,0,0" Stroke="Black" VerticalAlignment="Top" Width="663"/>
+        <TextBox x:Name="txtObservacao" HorizontalAlignment="Left" Margin="437,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" Height="225" AcceptsReturn="True"/>
+        <Label x:Name="lblObservacao" Content="Observações:" HorizontalAlignment="Left" Margin="437,31,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>
