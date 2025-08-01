@@ -27,12 +27,7 @@
             <ComboBoxItem Content="Alice Martins"/>
             <ComboBoxItem Content="Igor Ferreira"/>
         </ComboBox>
-        <ComboBox x:Name="cbxStatus" Margin="188,79,0,0" Width="168" SelectionChanged="cbxStatus_SelectionChanged">
-            <ComboBoxItem Content="Pago"/>
-            <ComboBoxItem Content="Não Pago"/>
-        </ComboBox>
         <Label Content="Selecione o psicólogo:" HorizontalAlignment="Left" Margin="17,53,0,0" VerticalAlignment="Top"/>
-        <Label Content="Status de pagamento:" HorizontalAlignment="Left" Margin="189,53,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnAtualizar" Content="" Margin="693,79,0,0" VerticalAlignment="Top" Width="36" Click="btnAtualizar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="T:\Pogramação\ProntuarioPsicologia\ProntuarioPsicologia\Images\atualizar.png"/>

@@ -39,7 +39,6 @@
                 <SolidColorBrush/>
             </Button.BorderBrush>
         </Button>
-        <CheckBox x:Name="ckbPago" Content="Pago" Margin="291,228,0,0" VerticalAlignment="Top" />
         <ListView x:Name="lstProntuario" Margin="172,96,36,40" Grid.Column="1" BorderBrush="Black" OpacityMask="Black" BorderThickness="1,1,1,1" SelectionChanged="lstProntuario_SelectionChanged_1">
             <ListView.View>
                 <GridView>
@@ -51,6 +50,11 @@
         <Rectangle x:Name="RetOpcional" HorizontalAlignment="Left" Height="75" Margin="12,276,0,0" Stroke="Black" VerticalAlignment="Top" Width="561" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txtObservacoes" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="424,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" Height="225" AcceptsReturn="True"/>
         <Label x:Name="lblDescricao" Content="Observações:" HorizontalAlignment="Left" Margin="424,13,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbxPagamento" Margin="280,229,0,0" Width="134" IsEditable="False" >
+            <ComboBoxItem Content="Por Sessão" />
+            <ComboBoxItem Content="Semanal" />
+            <ComboBoxItem Content="Mensal" />
+        </ComboBox>
 
     </Grid>
 </Window>

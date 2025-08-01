@@ -54,6 +54,7 @@ namespace ProntuarioPsicologia
 
         private void CarregarRegistros()
         {
+
             lstProntuario.Items.Clear();
 
             foreach (ListaPacientes pacientes in ListaPacientes.lista)
@@ -90,7 +91,6 @@ namespace ProntuarioPsicologia
             CarregarRegistros();
 
             int nota;
-            int pago;
             int psi;
 
             foreach (ListaPacientes pacientes in ListaPacientes.lista)
@@ -98,7 +98,7 @@ namespace ProntuarioPsicologia
                 Conexao = new MySqlConnection(data_source);
                 Conexao.Open();
 
-                string sql = "SELECT cpf_pacientes, nome, data_nascimento, telefone, valor, valor_nota, valor_pago, nome_responsavel, telefone_responsavel, id_psicologo, observacoes FROM pacientes WHERE id_pacientes = @id";
+                string sql = "SELECT cpf_pacientes, nome, data_nascimento, telefone, valor, valor_nota, nome_responsavel, telefone_responsavel, id_psicologo, observacoes, pagamento FROM pacientes WHERE id_pacientes = @id";
                 MySqlCommand buscar = new MySqlCommand(sql, Conexao);
                 buscar.Parameters.AddWithValue("@id", pacientes.id);
 
@@ -117,22 +117,20 @@ namespace ProntuarioPsicologia
                         if (nota == 0)
                             ckbNota.IsChecked = false;
                         else
-                            ckbNota.IsChecked = true;
-                        pago = reader.GetInt32(6);
-                        if (pago == 0)
-                            ckbPago.IsChecked = false;
-                        else
-                            ckbPago.IsChecked = true;
-                        txtNomeResponsavel.Text = reader.GetString(7);
-                        txtTelefoneResponsavel.Text = reader.GetString(8);
-                        psi = reader.GetInt32(9);
+                            ckbNota.IsChecked = true;    
+                        
+                        txtNomeResponsavel.Text = reader.GetString(6);
+                        txtTelefoneResponsavel.Text = reader.GetString(7);
+                        psi = reader.GetInt32(8);
                         if (psi == 1)
                             txtPsicologo.Text = "Alice Martins";
                         else
                             txtPsicologo.Text = "Igor Ferreira";
 
-                        if (!reader.IsDBNull(10))
-                        txtObservacoes.Text = reader.GetString(10);
+                        if (!reader.IsDBNull(9))
+                        txtObservacoes.Text = reader.GetString(9);
+
+                        cbxPagamento.SelectedIndex = reader.GetInt32(10);
                     }
                     reader.Close();
                 }
@@ -173,7 +171,7 @@ namespace ProntuarioPsicologia
 
                     cmd.Parameters.Clear();
                     cmd.CommandText = "UPDATE pacientes " +
-                                      "SET nome = @nome, telefone = @telefone, valor = @valor, nome_responsavel = @responsavel, telefone_responsavel = @telresponsavel, valor_nota = @nota, valor_pago = @pago, observacoes = @observacoes  " +
+                                      "SET nome = @nome, telefone = @telefone, valor = @valor, nome_responsavel = @responsavel, telefone_responsavel = @telresponsavel, valor_nota = @nota, observacoes = @observacoes, pagamento = @pagamento  " +
                                       "WHERE id_pacientes = @id";
 
                     cmd.Parameters.AddWithValue("@nome", txtNome.Text);
@@ -182,16 +180,13 @@ namespace ProntuarioPsicologia
                     cmd.Parameters.AddWithValue("@responsavel", txtNomeResponsavel.Text);
                     cmd.Parameters.AddWithValue("@telresponsavel", txtTelefoneResponsavel.Text);
                     cmd.Parameters.AddWithValue("@observacoes", txtObservacoes.Text);
+                    cmd.Parameters.AddWithValue("@pagamento", cbxPagamento.SelectedIndex);
 
                     if (ckbNota.IsChecked == true)
                         cmd.Parameters.AddWithValue("@nota", 1);
                     else
                         cmd.Parameters.AddWithValue("@nota", 0);
-                    if (ckbPago.IsChecked == true)
-                        cmd.Parameters.AddWithValue("@pago", 1);
-                    else
-                        cmd.Parameters.AddWithValue("@pago", 0);
-
+                    
                     cmd.Parameters.AddWithValue("@id", pacientes.id);
                     cmd.ExecuteNonQuery();
 

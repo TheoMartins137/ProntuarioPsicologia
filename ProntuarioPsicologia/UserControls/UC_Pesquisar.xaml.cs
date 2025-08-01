@@ -33,7 +33,7 @@ namespace ProntuarioPsicologia.UserControls
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = Conexao;
 
-            string sql = "SELECT id_pacientes, nome, cpf_pacientes, telefone, valor, valor_nota, valor_pago FROM pacientes ORDER BY id_pacientes ASC";
+            string sql = "SELECT id_pacientes, nome, cpf_pacientes, telefone, valor, valor_nota FROM pacientes ORDER BY id_pacientes ASC";
             MySqlCommand comand = new MySqlCommand(sql, Conexao);
 
             MySqlDataReader reader = comand.ExecuteReader();
@@ -49,7 +49,6 @@ namespace ProntuarioPsicologia.UserControls
                     telefone = reader.GetString(3),
                     valor = reader.GetString(4),
                     nota = reader.GetInt32(5) == 1 ? "Com Nota" : "Sem Nota",
-                    status = reader.GetInt32(6) == 1 ? "Pago" : "Não Pago"
                 };
 
                 LstPacientes.Items.Add(pacientes);
@@ -93,20 +92,16 @@ namespace ProntuarioPsicologia.UserControls
         private void Atualizar()
         {
             int? pago;
-            int? pago2;
 
             try
             {
                 Conexao = new MySqlConnection(data_source);
                 Conexao.Open();
 
-                string sql = "SELECT id_pacientes, nome, cpf_pacientes, telefone, valor, valor_nota, valor_pago FROM pacientes WHERE 1=1";
+                string sql = "SELECT id_pacientes, nome, cpf_pacientes, telefone, valor, valor_nota FROM pacientes WHERE 1=1";
 
                 if (cbxPsi.SelectedIndex != -1)
                     sql += " AND id_psicologo = @id";
-
-                if (cbxStatus.SelectedIndex != -1)
-                    sql += " AND valor_pago = @valor";
 
                 sql += " ORDER BY id_pacientes ASC";
 
@@ -117,12 +112,6 @@ namespace ProntuarioPsicologia.UserControls
                 else
                     pago = 2;
 
-                if (cbxStatus.SelectedIndex == 0)
-                    pago2 = 1;
-                else
-                    pago2 = 0;
-
-                comand.Parameters.AddWithValue("@valor", pago2);
                 comand.Parameters.AddWithValue("@id", pago);
 
                 MySqlDataReader reader = comand.ExecuteReader();
@@ -138,7 +127,6 @@ namespace ProntuarioPsicologia.UserControls
                         telefone = reader.GetString(3),
                         valor = reader.GetString(4),
                         nota = reader.GetInt32(5) == 1 ? "Com Nota" : "Sem Nota",
-                        status = reader.GetInt32(6) == 1 ? "Pago" : "Não Pago"
                     };
 
                     LstPacientes.Items.Add(pacientes);
