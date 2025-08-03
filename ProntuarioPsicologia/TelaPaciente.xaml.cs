@@ -270,5 +270,11 @@ namespace ProntuarioPsicologia
                 return;
             }
         }
+
+        private void btnPagamento_Click(object sender, RoutedEventArgs e)
+        {
+            Pagamentos pagamentos = new Pagamentos();
+            pagamentos.ShowDialog();
+        }
     }
 }

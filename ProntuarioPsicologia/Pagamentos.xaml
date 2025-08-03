@@ -1,0 +1,24 @@
+﻿<Window x:Name="Pagamentos1" x:Class="ProntuarioPsicologia.Pagamentos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProntuarioPsicologia"
+        mc:Ignorable="d"
+        Title="Pagamentos" Height="361" Width="434" Loaded="Pagamentos1_Loaded">
+    <Grid Margin="0,0,2,0">
+        <Button x:Name="btnAdicionar" Content="Adicionar Pagamento" Margin="224,273,0,0" VerticalAlignment="Top" Click="btnAdicionar_Click"/>
+        <ListView x:Name="LstPagamentos" HorizontalAlignment="Left" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="69,67,0,60" BorderBrush="Black" OpacityMask="Black" BorderThickness="1,1,1,1" Width="307">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id_pagamento}"/>
+                    <GridViewColumn Header="Valor" DisplayMemberBinding="{Binding valor, StringFormat=F2}"/>
+                    <GridViewColumn Header="Data" DisplayMemberBinding="{Binding data_pagamento, StringFormat=dd/MM/yyyy}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <DatePicker x:Name="DataPagamento" Margin="68,29,0,0" VerticalAlignment="Top" Width="156" SelectedDateChanged="DataPagamento_SelectedDateChanged" CalendarOpened="DataPagamento_CalendarOpened"/>
+        <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Margin="286,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" IsEnabled="False"/>
+        <Button x:Name="btnVoltar" Content="Voltar" Margin="68,274,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.037,0.191" Width="85" Click="btnVoltar_Click"/>
+    </Grid>
+</Window>
