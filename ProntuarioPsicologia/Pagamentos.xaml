@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProntuarioPsicologia"
         mc:Ignorable="d"
-        Title="Pagamentos" Height="361" Width="416" Loaded="Pagamentos1_Loaded" ResizeMode="NoResize">
+        Title="Pagamentos" Height="361" Width="416" Loaded="Pagamentos1_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,2,0">
         <Button x:Name="btnAdicionar" Content="Adicionar Pagamento" Margin="210,273,0,0" VerticalAlignment="Top" Click="btnAdicionar_Click"/>
         <ListView x:Name="LstPagamentos" HorizontalAlignment="Left" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="55,67,0,60" BorderBrush="Black" OpacityMask="Black" BorderThickness="1,1,1,1" Width="307" SelectionChanged="LstPagamentos_SelectionChanged">
