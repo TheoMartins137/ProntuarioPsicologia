@@ -21,8 +21,16 @@
                     <ui:SymbolIcon Symbol="AddFriend"/>
                 </ui:NavigationViewItem.Icon>
             </ui:NavigationViewItem>
-            <ui:NavigationViewItem x:Name="Item3"  Content="AAAAAAAA" Tag="Item3"/>
-            <ui:NavigationViewItem x:Name="Item4"  Content="Fodasse" Tag="Item4"/>
+            <ui:NavigationViewItem x:Name="Item4"  Content="Fazer Backup" Tag="Item4" MouseDown="Item4_MouseDown">
+                <ui:NavigationViewItem.Icon>
+                    <ui:SymbolIcon Symbol="Copy"/>
+                </ui:NavigationViewItem.Icon>
+            </ui:NavigationViewItem>
+            <ui:NavigationViewItem x:Name="Item3"  Content="Sobre" Tag="Item3" MouseDown="Item3_MouseDown">
+                <ui:NavigationViewItem.Icon>
+                    <ui:SymbolIcon Symbol="Help"/>
+                </ui:NavigationViewItem.Icon>
+            </ui:NavigationViewItem>
         </ui:NavigationView.MenuItems>
         <Grid x:Name="Grid" Width="814">
             <StackPanel>

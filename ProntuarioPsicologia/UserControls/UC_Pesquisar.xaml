@@ -13,19 +13,26 @@
                   SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView ScrollViewer.CanContentScroll="True">
-                    <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding id}"/>
-                    <GridViewColumn Header="Nome Completo" DisplayMemberBinding="{Binding nome}"/>
-                    <GridViewColumn Header="Telefone" DisplayMemberBinding="{Binding telefone}"/>
-                    <GridViewColumn Header="Nome do Responsável" Width="125" DisplayMemberBinding="{Binding nomeResponsavel}"/>
-                    <GridViewColumn Header="Tel. Responsável" Width="125" DisplayMemberBinding="{Binding telefoneResponsavel}"/>
-                    <GridViewColumn Header="Status Pagamento"/>
+                    <GridViewColumn Header="ID" Width="45" DisplayMemberBinding="{Binding id}"/>
+                    <GridViewColumn Header="Nome Completo" Width="207" DisplayMemberBinding="{Binding nome}"/>
+                    <GridViewColumn Header="CPF" Width="111" DisplayMemberBinding="{Binding cpf}"/>
+                    <GridViewColumn Header="Telefone" Width="150" DisplayMemberBinding="{Binding telefone}"/>
+                    <GridViewColumn Header="Valor" Width="75" DisplayMemberBinding="{Binding valor}"/>
+                    <GridViewColumn Header="Nota" Width="80" DisplayMemberBinding="{Binding nota}"/>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding status}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ComboBox Margin="6,81,0,0" Width="168"/>
-        <ComboBox Margin="180,81,0,0" Width="168"/>
-        <Label Content="Selecione o psicologo:" HorizontalAlignment="Left" Margin="6,58,0,0" VerticalAlignment="Top"/>
-        <Label Content="Status de pagamento:" HorizontalAlignment="Left" Margin="181,56,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbxPsi" Margin="17,79,0,0" Width="168" SelectionChanged="cbxPsi_SelectionChanged">
+            <ComboBoxItem Content="Alice Martins"/>
+            <ComboBoxItem Content="Igor Ferreira"/>
+        </ComboBox>
+        <Label Content="Selecione o psicólogo:" HorizontalAlignment="Left" Margin="17,53,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnAtualizar" Content="" Margin="693,79,0,0" VerticalAlignment="Top" Width="36" Click="btnAtualizar_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="T:\Pogramação\ProntuarioPsicologia\ProntuarioPsicologia\Images\atualizar.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </UserControl>

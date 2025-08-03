@@ -1,0 +1,18 @@
+﻿<Window x:Name="AdicionarPagamento1" x:Class="ProntuarioPsicologia.AdicionarPagamento"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProntuarioPsicologia"
+        mc:Ignorable="d"
+        Title="AdicionarPagamento" Height="147" Width="354" ResizeMode="NoResize" WindowStyle="SingleBorderWindow" Loaded="AdicionarPagamento1_Loaded">
+    <Grid HorizontalAlignment="Left" Width="357">
+        <DatePicker x:Name="DataPagamento" Margin="15,24,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtValor" HorizontalAlignment="Left" Margin="186,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnVoltar" Content="Voltar" Margin="15,65,0,0" VerticalAlignment="Top" Click="btnVoltar_Click"/>
+        <Button x:Name="btnAdicionar" Content="Adicionar" Margin="227,65,0,0" VerticalAlignment="Top" Click="btnAdicionar_Click"/>
+        <Label x:Name="lblData" Content="Data:" HorizontalAlignment="Left" Margin="15,5,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblData_Copiar" Content="Valor:" HorizontalAlignment="Left" Margin="186,5,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

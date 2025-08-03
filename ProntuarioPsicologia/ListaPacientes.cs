@@ -8,22 +8,27 @@ namespace ProntuarioPsicologia
 {
     public class ListaPacientes
     {
-        public ListaPacientes(int? id, string? nome, string? telefone, string? nomeResponsavel, string? telefoneResponsavel)
+
+
+        public ListaPacientes(int id, string? nome, string? telefone, string? cpf, string? valor, string? status, string? nota)
         {
             this.id = id;
             this.nome = nome;
             this.telefone = telefone;
-            this.nomeResponsavel = nomeResponsavel;
-            this.telefoneResponsavel = telefoneResponsavel;
+            this.cpf = cpf;
+            this.valor = valor;
+            this.status = status;
+            this.nota = nota;
         }
-
         public ListaPacientes() { }
 
-        public int? id { get; set; }
+        public int id { get; set; }
         public string? nome { get; set; }
         public string? telefone { get; set; }
-        public string? nomeResponsavel { get; set; }
-        public string? telefoneResponsavel { get; set; }
+        public string? cpf {  get; set; }
+        public string? valor { get; set; }
+        public string? status { get; set; }
+        public string? nota { get; set; }
 
         public static List<ListaPacientes> lista = new List<ListaPacientes>(); 
     }
