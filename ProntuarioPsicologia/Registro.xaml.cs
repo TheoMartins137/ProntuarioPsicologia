@@ -77,43 +77,51 @@ namespace ProntuarioPsicologia
 
         private void btnInsert_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (DTARegistro.SelectedDate == null)
             {
-                foreach (ListaPacientes paciente in ListaPacientes.lista)
+                MessageBox.Show("Selecione uma data válida", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            else
+            {
+                try
                 {
-                    Conexao = new MySqlConnection(data_source);
-                    Conexao.Open();
+                    foreach (ListaPacientes paciente in ListaPacientes.lista)
+                    {
+                        Conexao = new MySqlConnection(data_source);
+                        Conexao.Open();
 
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = Conexao;
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.Connection = Conexao;
 
-                    cmd.Parameters.Clear();
-                    cmd.CommandText = "INSERT INTO registros (id_paciente, registro, data_registro) " +
-                        "VALUES (@id_paciente, @registro, @data_paciente)";
+                        cmd.Parameters.Clear();
+                        cmd.CommandText = "INSERT INTO registros (id_paciente, registro, data_registro) " +
+                            "VALUES (@id_paciente, @registro, @data_paciente)";
 
-                    cmd.Parameters.AddWithValue("@id_paciente", paciente.id);
-                    cmd.Parameters.AddWithValue("@registro", txtProntuario.Text);
-                    cmd.Parameters.AddWithValue("@data_paciente", DTARegistro.Text);
-                    cmd.ExecuteNonQuery();
+                        cmd.Parameters.AddWithValue("@id_paciente", paciente.id);
+                        cmd.Parameters.AddWithValue("@registro", txtProntuario.Text);
+                        cmd.Parameters.AddWithValue("@data_paciente", DTARegistro.Text);
+                        cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Registro salvo!", "SUCESSO", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Close();
+                        MessageBox.Show("Registro salvo!", "SUCESSO", MessageBoxButton.OK, MessageBoxImage.Information);
+                        this.Close();
+                    }
+
                 }
-
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Error " + "has occured: " + ex.Message,
-                   "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Has occured: " + ex.Message,
-                    "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            finally
-            {
-                Conexao.Close();
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error " + "has occured: " + ex.Message,
+                       "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Has occured: " + ex.Message,
+                        "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                finally
+                {
+                    Conexao.Close();
+                }
             }
         }
 

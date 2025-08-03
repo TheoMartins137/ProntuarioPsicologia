@@ -65,12 +65,9 @@ namespace ProntuarioPsicologia
                     cmd.Parameters.AddWithValue("@data_pagamento", Convert.ToDateTime(DataPagamento.Text));
                     cmd.Parameters.AddWithValue("@id_paciente", pacientes.id);
 
-
-
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Pagamento adicionado com sucesso", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                     this.Close();
-
                 }
             }
             catch (MySqlException ex)

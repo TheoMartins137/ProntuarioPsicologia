@@ -26,8 +26,8 @@
         <Label x:Name="lblNomeResponsavel" Content="Nome Completo do Responsavel:*" HorizontalAlignment="Left" Margin="23,288,0,0" VerticalAlignment="Top" Height="19" Width="212"/>
         <TextBox x:Name="txtTelefoneResponsavel" HorizontalAlignment="Left" Margin="394,307,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" Height="32"/>
         <Label x:Name="lblTelefoneResponsavel" Content="Telefone do Responsavel:*" HorizontalAlignment="Left" Margin="394,288,0,0" VerticalAlignment="Top" Width="161" Height="19"/>
-        <Button x:Name="btnAtualizar" Content="Atualizar" Margin="392,360,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181" Click="btnAtualizar_Click" Height="32"/>
-        <Button x:Name="btnExcluir" Content="Excluir" Margin="14,358,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181" Foreground="Black" Click="btnExcluir_Click" Height="32" Background="#FFD72626" BorderBrush="#00000000"/>
+        <Button x:Name="btnAtualizar" Content="Atualizar" Margin="213,360,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181" Click="btnAtualizar_Click" Height="32"/>
+        <Button x:Name="btnExcluir" Content="Excluir" Margin="13,360,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.128,0.063" Width="181" Foreground="Black" Click="btnExcluir_Click" Height="32" Background="#FFD72626" BorderBrush="#00000000"/>
         <Rectangle x:Name="RetOpcional" HorizontalAlignment="Left" Height="75" Margin="12,274,0,0" Stroke="Black" VerticalAlignment="Top" Width="581"/>
         <TextBox x:Name="txtObservacoes" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="424,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" Height="225" AcceptsReturn="True"/>
         <Label x:Name="lblDescricao" Content="Observações:" HorizontalAlignment="Left" Margin="424,13,0,0" VerticalAlignment="Top" Height="19" Width="82"/>
@@ -45,7 +45,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btnPagamento" Content="Button" Margin="219,360,0,0" VerticalAlignment="Top" Width="154" Click="btnPagamento_Click"/>
+        <Button x:Name="btnPagamento" Content="Pagamentos" Margin="412,360,0,0" VerticalAlignment="Top" Width="181" Click="btnPagamento_Click" Background="#FF4CAF50"/>
 
     </Grid>
 </Window>

@@ -91,11 +91,11 @@ namespace ProntuarioPsicologia
                         {
                             while (reader2.Read())
                             {
-                               txtTotal.Text = Convert.ToString(reader2.GetDecimal(0));
+                                txtTotal.Text = Convert.ToString(reader2.GetDecimal(0));
                             }
                         }
                     }
-                        
+
                 }
             }
         }
@@ -139,6 +139,11 @@ namespace ProntuarioPsicologia
                     }
                 }
             }
+        }
+  
+        private void LstPagamentos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }
