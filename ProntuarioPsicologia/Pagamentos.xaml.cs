@@ -91,7 +91,10 @@ namespace ProntuarioPsicologia
                         {
                             while (reader2.Read())
                             {
-                                txtTotal.Text = Convert.ToString(reader2.GetDecimal(0));
+                                if (reader2.IsDBNull(0))
+                                    txtTotal.Text = "0";
+                                else
+                                    txtTotal.Text = Convert.ToString(reader2.GetDecimal(0));
                             }
                         }
                     }
