@@ -28,6 +28,7 @@ namespace ProntuarioPsicologia
 
         public class ConexaoBanco
         {
+
             public static string data_source = ConfigurationManager.ConnectionStrings["data_source"].ConnectionString;
 
             public static MySqlConnection GetConnection()
