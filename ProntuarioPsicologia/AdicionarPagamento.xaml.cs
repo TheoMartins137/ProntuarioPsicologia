@@ -35,6 +35,7 @@ namespace ProntuarioPsicologia
             {
                 return new MySqlConnection(data_source);
             }
+
         }
 
         private MySqlConnection Conexao;
