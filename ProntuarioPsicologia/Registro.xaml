@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProntuarioPsicologia"
         mc:Ignorable="d"
-        Title="Registro" Height="744" Width="628" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
+        Title="Registro" Height="744" Width="628" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" Icon="/user.png">
     <Grid>
         <Label Content="Prontuário Psicológico" HorizontalAlignment="Center" Margin="0,9,0,0" VerticalAlignment="Top" Width="640" Background="#FFE6730C" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="txtProntuario" HorizontalAlignment="Center" Margin="0,71,0,0" Text="" VerticalAlignment="Top" Width="588" Height="619" TextWrapping="Wrap" AcceptsReturn="True"/>

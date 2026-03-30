@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,8 +28,17 @@ namespace ProntuarioPsicologia
             InitializeComponent();
         }
 
-        public MySqlConnection Conexao = new MySqlConnection();
-        private string data_source = "datasource=localhost;username=root;password=Martinsfreitas8;database=db_prontuario";
+        public class ConexaoBanco
+        {
+            public static string data_source = ConfigurationManager.ConnectionStrings["data_source"].ConnectionString;
+
+            public static MySqlConnection GetConnection()
+            {
+                return new MySqlConnection(data_source);
+            }
+        }
+
+        private MySqlConnection Conexao;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -52,7 +62,7 @@ namespace ProntuarioPsicologia
 
                 foreach (PacienteSelecionado paciente in PacienteSelecionado.Selecionado)
                 {
-                    Conexao = new MySqlConnection(data_source);
+                    Conexao = new MySqlConnection(ConexaoBanco.data_source);
                     Conexao.Open();
 
                     string sql = "SELECT data_registro, registro FROM registros WHERE id_registro = @id";
@@ -88,7 +98,7 @@ namespace ProntuarioPsicologia
                 {
                     foreach (ListaPacientes paciente in ListaPacientes.lista)
                     {
-                        Conexao = new MySqlConnection(data_source);
+                        Conexao = new MySqlConnection(ConexaoBanco.data_source);
                         Conexao.Open();
 
                         MySqlCommand cmd = new MySqlCommand();
@@ -131,7 +141,7 @@ namespace ProntuarioPsicologia
             {
                 foreach (PacienteSelecionado pacientes in PacienteSelecionado.Selecionado)
                 {
-                    Conexao = new MySqlConnection(data_source);
+                    Conexao = new MySqlConnection(ConexaoBanco.data_source);
                     Conexao.Open();
 
                     MySqlCommand cmd = new MySqlCommand();
@@ -182,7 +192,7 @@ namespace ProntuarioPsicologia
                 {
                     foreach (PacienteSelecionado pacientes in PacienteSelecionado.Selecionado)
                     {
-                        Conexao = new MySqlConnection(data_source);
+                        Conexao = new MySqlConnection(ConexaoBanco.data_source);
                         Conexao.Open();
 
                         MySqlCommand cmd = new MySqlCommand();
