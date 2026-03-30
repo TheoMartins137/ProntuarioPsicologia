@@ -1,7 +1,5 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace ProntuarioPsicologia.UserControls
 {
@@ -22,8 +21,6 @@ namespace ProntuarioPsicologia.UserControls
     /// </summary>
     public partial class UC_Cadastro : UserControl
     {
-        private MySqlConnection Conexao;
-
         public UC_Cadastro()
         {
             InitializeComponent();
@@ -31,15 +28,8 @@ namespace ProntuarioPsicologia.UserControls
             EsconderTudo();
         }
 
-        public class ConexaoBanco
-        {
-            public static string data_source = ConfigurationManager.ConnectionStrings["data_source"].ConnectionString;
-
-            public static MySqlConnection GetConnection()
-            {
-                return new MySqlConnection(data_source);
-            }
-        }
+        public MySqlConnection Conexao = new MySqlConnection();
+        private string data_source = "datasource=localhost;username=root;password=Martinsfreitas8;database=db_prontuario";
 
         public void EsconderRet()
         {
@@ -101,7 +91,7 @@ namespace ProntuarioPsicologia.UserControls
         {
             try
             {
-                Conexao = new MySqlConnection(ConexaoBanco.data_source);
+                Conexao = new MySqlConnection(data_source);
                 Conexao.Open();
 
                 MySqlCommand cmd = new MySqlCommand();
@@ -165,7 +155,7 @@ namespace ProntuarioPsicologia.UserControls
         {
             try
             {
-                Conexao = new MySqlConnection(ConexaoBanco.data_source);
+                Conexao = new MySqlConnection(data_source);
                 Conexao.Open();
 
                 MySqlCommand cmd = new MySqlCommand();

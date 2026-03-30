@@ -1,5 +1,4 @@
 ﻿using Microsoft.Win32;
-using MySql.Data;
 using MySql.Data.MySqlClient;
 using ProntuarioPsicologia.UserControls;
 using System.IO;
@@ -13,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static ProntuarioPsicologia.Pagamentos;
+using MySql.Data;
 
 namespace ProntuarioPsicologia
 {
@@ -69,7 +68,8 @@ namespace ProntuarioPsicologia
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(ConexaoBanco.data_source))
+                string conexao = "datasource=localhost;username=root;password=Martinsfreitas8;database=db_prontuario";
+                using (MySqlConnection conn = new MySqlConnection(conexao))
                 {
                     using (MySqlCommand cmd = new MySqlCommand())
                     {

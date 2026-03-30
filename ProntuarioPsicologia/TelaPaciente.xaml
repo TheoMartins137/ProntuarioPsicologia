@@ -7,7 +7,7 @@
         xmlns:ui="http://schemas.modernwpf.com/2019" x:Class="ProntuarioPsicologia.TelaPaciente"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="TelaPaciente" Height="440" Width="900" ResizeMode="NoResize" Loaded="Window_Loaded_1" Icon="/user.png">
+        Title="TelaPaciente" Height="440" Width="900" ResizeMode="NoResize" Loaded="Window_Loaded_1">
     <Grid x:Name="Grid" Margin="0,0,-1,0">
         <TextBox x:Name="txtCPF" HorizontalAlignment="Left" Margin="12,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152" IsEnabled="False" Height="32"/>
         <TextBox x:Name="txtPsicologo" HorizontalAlignment="Left" Margin="262,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152" IsEnabled="False" Height="32"/>

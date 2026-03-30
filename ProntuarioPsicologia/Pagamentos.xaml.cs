@@ -28,15 +28,8 @@ namespace ProntuarioPsicologia
             DataPagamento.SelectedDate = DateTime.Now;
         }
 
-        public class ConexaoBanco
-        {
-            public static string data_source = ConfigurationManager.ConnectionStrings["data_source"].ConnectionString;
-
-            public MySqlConnection GetConnection()
-            {
-                return new MySqlConnection(data_source);
-            }
-        }
+        public MySqlConnection Conexao = new MySqlConnection();
+        private string data_source = "datasource=localhost;username=root;password=Martinsfreitas8;database=db_prontuario";
 
         DateTime DataSelecionada;
 
@@ -59,7 +52,7 @@ namespace ProntuarioPsicologia
 
             foreach (ListaPacientes pacientes in ListaPacientes.lista)
             {
-                using (var conexao = new MySqlConnection(ConexaoBanco.data_source))
+                using (var conexao = new MySqlConnection(data_source))
                 {
                     conexao.Open();
 

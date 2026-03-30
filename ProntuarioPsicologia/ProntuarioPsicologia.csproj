@@ -9,8 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="botao-atualizar.png" />
-    <None Remove="user.png" />
     <None Remove="UserControls\atualizar.png" />
   </ItemGroup>
 
@@ -25,8 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="botao-atualizar.png" />
-    <Resource Include="user.png" />
     <Resource Include="UserControls\atualizar.png" />
   </ItemGroup>
 

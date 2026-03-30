@@ -1,7 +1,5 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace ProntuarioPsicologia
 {
@@ -26,17 +25,8 @@ namespace ProntuarioPsicologia
             InitializeComponent();
         }
 
-        public class ConexaoBanco
-        {
-            public static string data_source = ConfigurationManager.ConnectionStrings["data_source"].ConnectionString;
-
-            public static MySqlConnection GetConnection()
-            {
-                return new MySqlConnection(data_source);
-            }
-        }
-
-        private MySqlConnection Conexao;
+        public MySqlConnection Conexao = new MySqlConnection();
+        private string data_source = "datasource=localhost;username=root;password=Martinsfreitas8;database=db_prontuario";
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
@@ -61,7 +51,7 @@ namespace ProntuarioPsicologia
                 foreach (ListaPacientes pacientes in ListaPacientes.lista)
                 {
 
-                    Conexao = new MySqlConnection(ConexaoBanco.data_source);
+                    Conexao = new MySqlConnection(data_source);
                     Conexao.Open();
 
                     MySqlCommand cmd = new MySqlCommand();
@@ -100,7 +90,7 @@ namespace ProntuarioPsicologia
         {
             foreach (ListaPacientes pacientes in ListaPacientes.lista)
             {
-                using (var conexao = new MySqlConnection(ConexaoBanco.data_source))
+                using (var conexao = new MySqlConnection(data_source))
                 {
                     conexao.Open();
 
